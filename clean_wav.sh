@@ -1,6 +1,5 @@
 #!/bin/bash
-
-
+# SEGAN-72900
 # guia file containing pointers to files to clean up
 if [ $# -lt 1 ]; then
     echo 'ERROR: at least wavname must be provided!'
@@ -20,5 +19,5 @@ echo "SAVE PATH: $SAVE_PATH"
 mkdir -p $SAVE_PATH
 
 CUDA_VISIBLE_DEVICES="" python main.py --init_noise_std 0. --save_path segan_v1 \
-                        --batch_size 100 --g_nl prelu --weights SEGAN-72900 \
+                        --batch_size 100 --g_nl prelu --weights "$3" \
                         --test_wav $NOISY_WAVNAME --save_clean_path $SAVE_PATH
